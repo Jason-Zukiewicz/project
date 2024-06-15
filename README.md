@@ -12,6 +12,7 @@ Welcome to the Untitled Website project, a soon-to-be premier collection of game
 - [Getting Started](#getting-started)
     - [Frontend Requirements](#frontend-requirements)
     - [Backend Requirements](#backend-requirements)
+- [Docker](#docker)
 - [Collaboration](#collaboration)
 
 ## Getting Started
@@ -39,6 +40,11 @@ make b
 ```sh
 make bt
 ```
+
+## Docker
+
+
+
 ---
 ## Collaboration
 
