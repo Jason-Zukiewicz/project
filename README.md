@@ -8,7 +8,7 @@ Welcome to the Untitled Website project, a soon-to-be premier collection of game
 
 ### Table of Contents
 
-- [Introduction](#overview)
+- [Overview](#overview)
 - [Getting Started](#getting-started)
     - [Frontend Requirements](#frontend-requirements)
     - [Backend Requirements](#backend-requirements)

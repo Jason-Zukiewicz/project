@@ -9,12 +9,19 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get full-upgrade -y
 
-# ** ADD EXTRA DOWNLOADS HERE **  (must append with '&& \') THIS NEED FIXED
-RUN apt-get install nano && \
-    apt-get install rustup -y && \
-    apt-get install curl -y && \
-    apt-get install build-essential -y && \
-    rustup toolchain install stable
+# ** ADD EXTRA DOWNLOADS HERE **  (must append with '&& \')
+RUN apt-get install -y curl build-essential
+    
+
+# Rust setup
+RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs -o rustup.sh
+RUN sh rustup.sh -y
+
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+RUN rustup update
+
+RUN cargo install cargo-watch
 
 # Clean misc items
 RUN apt-get autoremove -y && \
