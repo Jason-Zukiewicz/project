@@ -18,8 +18,8 @@ frontend:
 venv:
 	@echo Building Ubuntu iso...
 	@docker build -t ubuntu .
-	@echo Initializing virtual environment...
-	@docker run -it --name ubuntu.venv ubuntu
+	@echo Starting virtual environment...
+	@docker run -it --name ubuntu.venv -v ${PWD}:/root/volume ubuntu
 
 # Runs the docker container
 run:
