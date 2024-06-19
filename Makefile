@@ -15,7 +15,7 @@ frontend:
 ###################
 # DOCKER COMMANDS #
 
-venv:
+env:
 	@echo Building Ubuntu iso...
 	@docker build -t ubuntu .
 	@echo Starting virtual environment...
@@ -32,7 +32,3 @@ clean:
 	@docker stop ubuntu.venv
 	@docker container rm ubuntu.venv
 	@docker image rm ubuntu
-
-
-
-
