@@ -1,16 +1,19 @@
 # Official Ubuntu ISO
 FROM ubuntu:latest
 
-# Set Working Directory to '/root'
+# Working Directory to '/root'
 WORKDIR /root
 
-# Update and upgrade the package list
+# Update & Upgrade
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get full-upgrade -y
 
-# ** ADD EXTRA DOWNLOADS HERE **  (must append with '&& \')
-RUN apt-get install -y curl build-essential
+# ** ADD EXTRA PACKAGES HERE **  (must append with '&& \')
+RUN apt-get install curl -y && \
+    apt-get install build-essential -y && \
+    apt-get install nodejs -y && \
+    apt-get install npm -y
     
 # RUST INSTALLATION #
 RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs -o rustup.sh && \
@@ -23,6 +26,9 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 # Clean misc items
 RUN apt-get autoremove -y && \
     apt-get clean
+
+
+
 
 # Customize the shell prompt to display as "root"
 RUN echo 'export PS1="root\\$ "' >> /root/.bashrc

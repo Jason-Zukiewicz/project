@@ -12,22 +12,21 @@ f: frontend
 frontend:
 	# Add frontend commands here
 
-###################
-# DOCKER COMMANDS #
-
+# # # # # # # # # # # # # # # # #
+# D O C K E R   C O M M A N D S #
+# # # # # # # # # # # # # # # # #
 env:
-	@echo Building Ubuntu iso...
 	@docker build -t ubuntu .
-	@echo Starting virtual environment...
+	@echo Ubuntu Container Loaded.
 	@docker run -it --name ubuntu.venv -v ${PWD}:/root/volume ubuntu
 
-# Runs the docker container
+# Runs Container
 run:
-	@echo Booting container...
+	@echo Booted.
 	@docker start ubuntu.venv
 	@docker attach ubuntu.venv
 
-# Deletes docker container and image
+# Deletes Container AND Image
 clean:
 	@docker stop ubuntu.venv
 	@docker container rm ubuntu.venv
