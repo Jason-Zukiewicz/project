@@ -11,6 +11,7 @@ backtest:
 f: frontend
 frontend:
 	# Add frontend commands here
+	
 
 # # # # # # # # # # # # # # # # #
 # D O C K E R   C O M M A N D S #
@@ -25,6 +26,9 @@ run:
 	@echo Booted.
 	@docker start ubuntu.venv
 	@docker attach ubuntu.venv
+
+stop:
+	@docker stop ubuntu.venv
 
 # Deletes Container AND Image
 clean:
