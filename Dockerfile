@@ -1,42 +1,33 @@
-# Use the official Ubuntu base image
+# Official Ubuntu ISO
 FROM ubuntu:latest
 
-# Set the working directory to /root
+# Working Directory to '/root'
 WORKDIR /root
 
-# Update and upgrade the package list
+# Update & Upgrade
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get full-upgrade -y
+    apt-get full-upgrade -y && \
+    apt-get autoremove -y && \
+    apt-get clean
 
-# ** ADD EXTRA DOWNLOADS HERE **  (must append with '&& \')
-RUN apt-get install -y curl build-essential
-    
+# ** ADD EXTRA PACKAGES HERE **  (must append with '&& \')
+RUN apt-get install curl -y && \
+    apt-get install -y make nodejs npm tmux
 
-# Rust setup
-RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs -o rustup.sh
-RUN sh rustup.sh -y
+# RUST INSTALLATION #
+RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs -o rustup.sh && \
+    sh rustup.sh -y && \
+    /root/.cargo/bin/rustup update  && \
+    /root/.cargo/bin/cargo  install cargo-watch && \
+    npm install -g live-server
 
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-RUN rustup update
-
-RUN cargo install cargo-watch
-
-# Clean misc items
-RUN apt-get autoremove -y && \
-    apt-get clean
+EXPOSE 8080 3000
 
 # Customize the shell prompt to display as "root"
 RUN echo 'export PS1="root\\$ "' >> /root/.bashrc
 
-# Add a custom message or script to the /root directory (optional)
-RUN echo "Ubuntu container...\n=-=-=-=-=-=-=-=-=-=-=-=-=-=\nLoaded:\n+ npm\n+ Node.js\n+ React"
-
-
-# docker build -t ubuntu .
-# docker run -it --name ws ubuntu
-
-# docker start ws || starts conatiner
-# docker attach ws || attaches the running container to cmd interface for interactions
+CMD [ "tmux", "new", "-s", "split-term"]
 

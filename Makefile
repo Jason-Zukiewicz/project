@@ -1,4 +1,37 @@
+# # # # # # # #
+# D O C K E R #
+# # # # # # # #
+
+# Compiles a fresh image and new container
+img:
+	@docker build -t ubuntu .
+	@docker run -it --name server -p 8080:8080 -p 3000:3000 -v ${PWD}:/root/volume ubuntu
+
+# Runs the closed container
+run:
+	@docker start server
+	@docker attach server
+
+# Closes the server without deleting it
+stop:
+	@docker stop server
+
+# Deletes Container AND Image
+clean:
+	@docker stop server
+	@docker container rm server
+	@docker image rm ubuntu
+
+
+# # # # # # # # #
+# R U N T I M E #
+# # # # # # # # #
+
 .PHONY: backend backtest frontend
+
+f: frontend
+frontend:
+	live-server --port=8080 ./frontend/
 
 b: backend
 backend:
@@ -7,32 +40,3 @@ backend:
 bt: backtest
 backtest:
 	cd backend && cargo watch -q -c -w tests/ --poll -x "test -q quick_dev -- --nocapture"
-
-f: frontend
-frontend:
-	# Add frontend commands here
-
-###################
-# DOCKER COMMANDS #
-
-venv:
-	@echo Building Ubuntu iso...
-	@docker build -t ubuntu .
-	@echo Starting virtual environment...
-	@docker run -it --name ubuntu.venv -v ${PWD}:/root/volume ubuntu
-
-# Runs the docker container
-run:
-	@echo Booting container...
-	@docker start ubuntu.venv
-	@docker attach ubuntu.venv
-
-# Deletes docker container and image
-clean:
-	@docker stop ubuntu.venv
-	@docker container rm ubuntu.venv
-	@docker image rm ubuntu
-
-
-
-
