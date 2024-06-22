@@ -46,7 +46,8 @@ async fn main() -> Result<()> {
     //$ Open Cors To Allow the front and back to talk
     let cors = CorsLayer::new()
         .allow_methods([Method::GET, Method::POST])
-        .allow_origin(Any);
+        .allow_origin(Any)
+        .allow_headers(Any);
 
     //$ Initialize ModelController AKA Database
     let mc = ModelController::new().await?;
