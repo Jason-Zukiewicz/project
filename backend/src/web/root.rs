@@ -25,4 +25,3 @@ async fn get_root() -> impl IntoResponse {
 }
 
 /*  #endregion   ------------------------------- [ Routes ] ------------------------------------------  */
-
