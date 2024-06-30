@@ -5,7 +5,7 @@
 # Compiles a fresh image and new container
 img:
 	@docker build -t ubuntu .
-	@docker run -it --name server -p 8080:8080 -p 3000:3000 -v ${PWD}:/root/volume ubuntu
+	@docker run -it --name server -p 8080:8080 -p 9999:9999 -v ${PWD}:/root/volume ubuntu
 
 # Runs the closed container
 run:

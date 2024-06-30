@@ -24,7 +24,7 @@ RUN curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs -o rustup.sh && \
 
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-EXPOSE 8080 3000
+EXPOSE 8080 9999
 
 # Customize the shell prompt to display as "root"
 RUN echo 'export PS1="root\\$ "' >> /root/.bashrc

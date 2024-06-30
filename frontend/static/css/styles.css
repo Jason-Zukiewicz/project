@@ -1,5 +1,21 @@
-.container {
+/* .container {
     background-color: blue;
     width: 100px;
     height: 100px;
+} */
+
+.todo-cards {
+    background-color: rgb(234, 219, 200);
+    border: black 1px;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 5px;
+
+    .todo-id-num {
+        float: right;
+    }
+}
+
+.body {
+    background-color: rgb(133, 142, 104);
 }

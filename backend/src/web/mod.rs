@@ -16,8 +16,8 @@ pub fn all_routes(mc: ModelController) -> Router {
 
     //$ When we create the router with a middleware, we need to layer it correctly so the middleware is not applied to all routes
     let auth_routes = Router::new()
-        .merge(todos::routes(mc))
-        .route_layer(middleware::from_fn(mw_auth::mw_require_auth));
+        .merge(todos::routes(mc));
+        //FIXME: Removed for testing .route_layer(middleware::from_fn(mw_auth::mw_require_auth));
 
     //$ Then we can merge it all together at the end
     base_routes.merge(auth_routes)
