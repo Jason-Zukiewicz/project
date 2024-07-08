@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Games</title>
     <link rel="stylesheet" href="./static/css/styles.css">
 </head>
+
 <body class="body">
 
-    <div id="navbar">Navbar Section</div>
-    ---<br><br>
-    <div class="container"></div><br>
-                                                                    
+
+
     <button id="postButton"><strong>+ Todo (post)</strong></button>
 
-    <!-- Delete this <p> when you can -->
-    <p>             ^ ^ ^ ^ ^ ^ ^ ^ ^ Now adds new template TODOS! </p>
-    <br><br>
+    <nav class="nav-bar" w-tid="5">
+        <div class="nav-container" w-tid="6">
+            <a href="" w-tid="7">Home</a>
+            <a href="" class="active" w-tid="8">To-Do's</a>
+            <a href="" w-tid="8">Synapse</a>
+            <a href="" w-tid="9">Thesaurus</a>
+            <a href="" w-tid="10">State of Mind</a>
+            <a href="" w-tid="11">Settings</a>
+            <a href="" w-tid="12">Profile</a>
+        </div>
+    </nav>
 
+    <div class="container" w-tid="12">
+        <h1 w-tid="13">To-Do's</h1>
+        <h2 w-tid="14">Manage Your Tasks</h2>
 
-    <div id="todos">
-        <div class="todo-cards">
-            <strong class="todo-title"><u>TODO HEADER</u></strong>
-            <strong><i class="todo-id-num">ID: </i></strong><br><br>
-            <p class="todo-msg">This is a sample todo card.</p>
+        <div class="add-todo" w-tid="15">
+            <input type="text" id="new-todo" placeholder="Enter a new task here" w-tid="16">
+            <button id="add-btn" w-tid="17">Add</button>
+        </div>
+
+        <div class="category-filter" w-tid="18">
+            <button class="category-btn active" data-category="all" w-tid="19">All</button>
+            <button class="category-btn" data-category="work" w-tid="20">Work</button>
+            <button class="category-btn" data-category="personal" w-tid="21">Personal</button>
+            <button class="category-btn" data-category="goals" w-tid="22">Goals</button>
+        </div>
+
+        <div class="todo-list" id="todo-list" w-tid="23">
+            <div class="todo-card">
+                <h3>Laundry</h3>
+                <p>Category: undefined</p>
+                <p>Created: 7/8/2024, 4:12:00 PM</p>
+                <div class="todo-actions">
+                    <button class="complete-btn" onclick="completeTodo(0)">Complete</button>
+                    <button class="delete-btn" onclick="deleteTodo(0)">Delete</button>
+                </div>
+            </div>
         </div>
     </div>
-    
-
-
 
     <script src="./js/main.js"></script>
 </body>
+
 </html>
