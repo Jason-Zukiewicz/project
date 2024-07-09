@@ -6,40 +6,28 @@
 
 use anyhow::Result;
 use dotenv::dotenv;
+use httpc_test::Client;
 use serde_json::json;
 
+mod todos;
 /*  #endregion   ------------------------------- [ IMPORTS ] ------------------------------------------  */
 
 /*  #region      ------------------------------- [ TEST ] ------------------------------------------  */
 
+const ADDRESS: &str = "http://localhost:9999";
+
 #[tokio::test]
 async fn quick_dev() -> Result<()> {
-    dotenv().ok();
-    let BACKEND_PORT = std::env::var("BACKEND_PORT").expect("BACKEND_PORT must be set.");
-    let hc = httpc_test::new_client(format!("http://localhost:{}", BACKEND_PORT))?;
+    let hc = httpc_test::new_client(ADDRESS)?;
 
-    //$ Login
-    let req_login = hc.do_post(
-        "/login",
-        json!({
-            "username": "user",
-            "password": "pass"
-        }),
-    );
-    req_login.await?.print().await?;
-
-    //$ Todo
-    let req_create_todo = hc.do_post(
-        "/todos",
-        json!({
-            "title": "todo AAA"
-        }),
-    );
-    req_create_todo.await?.print().await?;
-
-    hc.do_get("/todos").await?.print().await?;
+    test_root(&hc).await?;
+    todos::test_todos(&hc).await?;
 
     Ok(())
 }
 
-/*  #endregion   ------------------------------- [ Test ] ------------------------------------------  */
+async fn test_root(hc: &Client) -> Result<()> {
+    let req_root = hc.do_get("/");
+    req_root.await?.print().await?;
+    Ok(())
+}
