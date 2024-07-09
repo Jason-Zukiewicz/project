@@ -5,9 +5,13 @@ mod error;
 mod models;
 mod routes;
 
-use axum::{middleware, response::Response, Router};
+use axum::{http::Request, middleware, response::Response, Router};
 use error::Result;
 use models::controller::ModelController;
+use tower_http::{
+    body::Full,
+    cors::{Any, CorsLayer},
+};
 
 const ADDRESS: &str = "0.0.0.0:9999";
 
@@ -15,7 +19,11 @@ const ADDRESS: &str = "0.0.0.0:9999";
 async fn main() -> Result<()> {
     let mc = ModelController::new().await?;
 
-    let routes = routes::routes(mc.clone()).layer(middleware::map_response(main_response_mapper));
+    let cors = CorsLayer::new().allow_methods(Any).allow_origin(Any);
+
+    let routes = routes::routes(mc.clone())
+        .layer(middleware::map_response(main_response_mapper))
+        .layer(cors);
 
     let listener = tokio::net::TcpListener::bind(ADDRESS).await.unwrap();
     println!("->> BACKEND RUNNING -- {ADDRESS}");
