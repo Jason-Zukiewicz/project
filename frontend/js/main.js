@@ -36,14 +36,22 @@ function addTodo() {
 }
 
 function completeTodo(index) {
-  todos.splice(index, 1);
-  localStorage.setItem('todos', JSON.stringify(todos));
-  renderTodos();
+  const todoCard = todoList.children[index];
+  todoCard.classList.add('pop');
+
+
+  setTimeout(() => {
+    todos.splice(index, 1);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    renderTodos();
+  }, 300); // Match this duration with the CSS animation duration
 }
 
 function deleteTodo(index) {
   const todoCard = todoList.children[index];
   todoCard.classList.add('pop');
+
+
   setTimeout(() => {
     todos.splice(index, 1);
     localStorage.setItem('todos', JSON.stringify(todos));

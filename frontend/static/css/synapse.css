@@ -1,0 +1,21 @@
+
+#easy-btn:hover {
+    color: black;
+    background-color: chartreuse;
+    box-shadow: 0 0 10px chartreuse;
+}
+#medium-btn:hover {
+    color: black;
+    background-color: gold;
+    box-shadow: 0 0 10px gold;
+}
+#hard-btn:hover {
+    color: black;
+    background-color: rgb(255, 153, 0);
+    box-shadow: 0 0 10px rgb(255, 153, 0);
+}
+#master-btn:hover {
+    color: black;
+    background-color: crimson;
+    box-shadow: 0 0 10px crimson;
+}
