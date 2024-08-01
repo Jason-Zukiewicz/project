@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Games</title>
+    <link rel="stylesheet" href="./static/css/styles.css">
+</head>
+
+<body class="body">
+
+    <nav class="nav-bar" w-tid="5">
+        <div class="nav-container">
+            <a href="./index.html">Quests</a>
+            <a href="./index.html">To-Do's</a>
+            <a href="./synapse.html">Synapse</a>
+            <a href="./thesaurus.html">Thesaurus</a>
+            <a href="./stateofmind.html">State of Mind</a>
+            <a href="./settings.html" class="active">Settings</a>
+            <a href="./profile.html">Profile</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Settings and Configurations</h1>
+        
+        <div class="settings-content">
+            <div class="settings-section">
+                <h2>Account Info</h2>
+                <div class="setting-item">
+                    <span>Profile Picture</span>
+                    <img src="https://images.unsplash.com/uploads/1413395496082cbc91228/43e39040?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Profile picture" class="profile-picture">
+                </div>
+                <div class="setting-item">
+                    <span>Username</span>
+                    <input type="text" value="User420_69" />
+                </div>
+                <div class="setting-item">
+                    <span>Email</span>
+                    <input type="email" value="user@dumdum.com" />
+                </div>
+                <div class="setting-item">
+                    <span>Change Password</span>
+                    <button>Update Password</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>Interface Settings</h2>
+                <div class="setting-item">
+                    <span>Cyber Theme </span> <!-- When unchecked, will turn off glow and use normal font -->
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span>Font Size</span>
+                    <select>
+                        <option>Small</option>
+                        <option selected>Medium</option>
+                        <option>Large</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <span>Color Theme</span>
+                    <select>
+                        <option>Cybernet Blue</option>
+                        <option>Matrix Green</option>
+                        <option>Retro Purple</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>Notification Preferences</h2>
+                <div class="setting-item">
+                    <span>Email Notifications</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span>Push Notifications</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span>Notification Sound</span>
+                    <select>
+                        <option>Cyber Beep</option>
+                        <option>Neon Buzz</option>
+                        <option>Silent</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>Privacy Settings</h2>
+                <div class="setting-item">
+                    <span>Profile Visibility</span>
+                    <select>
+                        <option>Public</option>
+                        <option>Friends Only</option>
+                        <option>Private</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <span>Data Sharing</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>Advanced Options</h2>
+                <div class="setting-item">
+                    <span>Enable Beta Features</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span>Clear Cache</span>
+                    <button>Clear Now</button>
+                </div>
+                <div class="setting-item">
+                    <span>Export Data</span>
+                    <button>Export</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

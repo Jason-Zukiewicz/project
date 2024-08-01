@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Games</title>
+    <link rel="stylesheet" href="./static/css/styles.css">
+</head>
+
+<body class="body">
+
+    <nav class="nav-bar" w-tid="5">
+        <div class="nav-container">
+            <a href="./index.html">Quests</a>
+            <a href="./index.html">To-Do's</a>
+            <a href="./synapse.html">Synapse</a>
+            <a href="./thesaurus.html">Thesaurus</a>
+            <a href="./stateofmind.html" class="active">State of Mind</a>
+            <a href="./settings.html">Settings</a>
+            <a href="./profile.html">Profile</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>State of Mind</h1>
+        <h2>How many can you get?</h2>
+
+        <div class="category-filter">
+            <button class="category-btn" id="easy-btn">Novice</button>
+            <button class="category-btn" id="medium-btn">Adept</button>
+            <button class="category-btn" id="hard-btn">Virtuoso</button>
+            <button class="category-btn" id="master-btn">Maestro</button>
+        </div>
+    </div>
+
+
+<div class="container">
+    
+    <div class="game-content">
+        <div id="timer">Time: 180 seconds</div>
+        <div id="score">Score: 0 / 50</div>
+        <input type="text" id="state-input" placeholder="Enter a U.S. state...">
+        <div class="button-container">
+            <button id="submit-state">Submit</button>
+            <button id="stop-game">Stop Game</button>
+        </div>
+        <h2>States Entered:</h2>
+        <ul id="states-list"></ul>
+    </div>
+</div>
+
+<script>
+const allStates = [
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+    "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+    "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+    "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+    "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+];
+
+let enteredStates = [];
+let timeLeft = 180;
+let timerInterval;
+
+const stateInput = document.getElementById('state-input');
+const submitButton = document.getElementById('submit-state');
+const stopButton = document.getElementById('stop-game');
+const statesList = document.getElementById('states-list');
+const timerDisplay = document.getElementById('timer');
+const scoreDisplay = document.getElementById('score');
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = `Time: ${timeLeft} seconds`;
+        if (timeLeft <= 0) {
+            endGame();
+        }
+    }, 1000);
+}
+
+function endGame() {
+    clearInterval(timerInterval);
+    stateInput.disabled = true;
+    submitButton.disabled = true;
+    stopButton.disabled = true;
+    alert(`Game Over! You correctly entered ${enteredStates.length} states.`);
+}
+
+function updateScore() {
+    scoreDisplay.textContent = `Score: ${enteredStates.length} / 50`;
+}
+
+function addState(state) {
+    if (allStates.includes(state) && !enteredStates.includes(state)) {
+        enteredStates.push(state);
+        const li = document.createElement('li');
+        li.textContent = state;
+        statesList.appendChild(li);
+        updateScore();
+        if (enteredStates.length === 50) {
+            endGame();
+        }
+    }
+}
+
+submitButton.addEventListener('click', () => {
+    const state = stateInput.value.trim();
+    if (state) {
+        addState(state);
+        stateInput.value = '';
+    }
+});
+
+stateInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const state = stateInput.value.trim();
+        if (state) {
+            addState(state);
+            stateInput.value = '';
+        }
+    }
+});
+
+stopButton.addEventListener('click', () => {
+    if (confirm("Are you sure you want to stop the game?")) {
+        endGame();
+    }
+});
+
+startTimer();
+</script>

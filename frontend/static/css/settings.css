@@ -1,0 +1,137 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); Cyber Typeface */
+
+body {
+    background-color: #020814;
+    color: var(--primary-neon);
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    text-shadow: 0 0 10px var(--primary-neon);
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.settings-content {
+    background-color: var(--surface);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px var(--primary-neon);
+}
+
+.settings-section {
+    margin-bottom: 20px;
+}
+
+.settings-section h2 {
+    border-bottom: 2px solid var(--primary-neon);
+    padding-bottom: 5px;
+    text-shadow: 0 0 5px var(--primary-neon);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+/* .setting-item:hover {
+    transform: scale(1.05);
+} */
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--secondary-neon);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+select, input[type="text"], input[type="email"], input[type="password"] {
+    background-color: #020814;
+    color: var(--primary-neon);
+    border: 1px solid var(--primary-neon);
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+}
+
+button {
+    background-color: var(--primary-neon);
+    color: #041429;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-neon);
+    color: var(--background);
+    box-shadow: 0 0 15px var(--secondary-neon);
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-neon);
+    margin-bottom: 20px;
+}

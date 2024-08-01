@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
 @import url("./synapse.css");
+@import url("./thesaurus.css");
+@import url("./settings.css");
+@import url("./stateofmind.css");
   
   :root {
     --primary-neon: #00ffff;

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    background-color: #020814;
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav {
+    background-color: #041429;
+    padding: 10px 0;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #00ffff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+nav ul li a:hover {
+    background-color: #00ffff;
+    color: #041429;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+nav ul li a.active {
+    background-color: #00ffff;
+    color: #041429;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    text-shadow: 0 0 10px #00ffff;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+    }
+    to {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+    }
+}
+
+.game-content {
+    background-color: #041429;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+#state-input {
+    background-color: #020814;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    width: calc(100% - 24px);
+    margin-bottom: 10px;
+}
+
+#submit-state, #stop-game {
+    background-color: #00ffff;
+    color: #041429;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+#submit-state:hover, #stop-game:hover {
+    background-color: #041429;
+    color: #00ffff;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+#stop-game {
+    background-color: #ff3366;
+    color: #ffffff;
+}
+
+#stop-game:hover {
+    background-color: #041429;
+    color: #ff3366;
+    box-shadow: 0 0 15px #ff3366;
+}
+
+#states-list {
+    list-style-type: none;
+    padding: 0;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+#states-list li {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+#timer, #score {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}

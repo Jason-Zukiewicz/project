@@ -58,12 +58,14 @@ function deleteTodo(index) {
     renderTodos();
   }, 300); // Match this duration with the CSS animation duration
 }
-
-addBtn.addEventListener('click', addTodo);
-newTodoInput.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    addTodo();
-  }
-});
+if (addBtn) {
+  addBtn.addEventListener('click', addTodo);
+  newTodoInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      addTodo();
+    }
+  });
+}
 
 renderTodos();
+
